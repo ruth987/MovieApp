@@ -1,70 +1,37 @@
-import 'package:equatable/equatable.dart';
-
-class Movie extends Equatable {
-  final int id;
+abstract class Movie {
+  final String id;
   final String title;
   final String originalTitle;
-  final String overview;
-  final bool adult;
-  final String backdropPath;
-  final String posterPath;
-  final double popularity;
-  final int budget;
-  final String homepage;
-  final String imdbId;
-  final String originalLanguage;
-  final List<Genre> genres;
-  final List<String> originCountry;
-  final List<ProductionCompany> productionCompanies;
+  final PrimaryImage primaryImage;
+  final String plot;
+  final String releaseDate;
+  final double rating;
+  // final int runtime;
+  // final int chartMeterRanking;
 
-  const Movie({
+  Movie({
     required this.id,
     required this.title,
     required this.originalTitle,
-    required this.overview,
-    required this.adult,
-    required this.backdropPath,
-    required this.posterPath,
-    required this.popularity,
-    required this.budget,
-    required this.homepage,
-    required this.imdbId,
-    required this.originalLanguage,
-    required this.genres,
-    required this.originCountry,
-    required this.productionCompanies,
+    required this.primaryImage,
+    required this.plot,
+    required this.releaseDate,
+    required this.rating,
+    // required this.runtime,
+    // required this.chartMeterRanking,
   });
-
-  @override
-  List<Object?> get props => [id];
 }
+class PrimaryImage {
+  final String id;
+  final String imageUrl;
+  final int imageWidth;
+  final int imageHeight;
 
-class Genre extends Equatable {
-  final int id;
-  final String name;
-
-  Genre({
+  PrimaryImage({
     required this.id,
-    required this.name,
+    required this.imageUrl,
+    required this.imageWidth,
+    required this.imageHeight,
   });
 
-  @override
-  List<Object?> get props => [id];
-}
-
-class ProductionCompany extends Equatable {
-  final int id;
-  final String? logoPath;
-  final String name;
-  final String originCountry;
-
-  ProductionCompany({
-    required this.id,
-    this.logoPath,
-    required this.name,
-    required this.originCountry,
-  });
-
-  @override
-  List<Object?> get props => [id];
 }

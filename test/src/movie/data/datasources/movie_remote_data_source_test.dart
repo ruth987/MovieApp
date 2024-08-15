@@ -18,7 +18,7 @@ void main() {
   setUp(() {
     mockHttpClient = MockHttpClient();
     dataSource =
-        MovieRemoteDataSourceImpl(client: mockHttpClient, apiKey: apiKey);
+        MovieRemoteDataSourceImpl(client: mockHttpClient);
   });
 
   test(

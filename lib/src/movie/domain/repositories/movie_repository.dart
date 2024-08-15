@@ -10,4 +10,7 @@ abstract class MovieRepository {
   ResultFuture<List<Video>> getMovieVideos(int id);
 
   ResultFuture<Movie> getMovieDetails(int id);
+
+  ResultFuture<List<Movie>> getFavourites();
+
 }

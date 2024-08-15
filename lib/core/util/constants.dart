@@ -1,3 +1,3 @@
-const KBaseUrl = 'https://api.themoviedb.org/3';
+const KBaseUrl = 'https://imdb188.p.rapidapi.com/api/v1';
 
-const apiKey = '41bf89385e35f07c52447746ead87cea';
+const apiKey = '43893186eamshf2cd3663e497950p127425jsn095550fdfbe4';

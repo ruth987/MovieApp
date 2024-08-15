@@ -3,7 +3,9 @@ import 'package:movie_app/src/movie/presentation/widgets/movie_detail/genre.dart
 import 'package:movie_app/src/movie/presentation/widgets/movie_home/movie_tag.dart';
 
 class CurrentMovieCard extends StatelessWidget {
-  const CurrentMovieCard({super.key});
+  final String imageUrl;
+
+  const CurrentMovieCard({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +19,30 @@ class CurrentMovieCard extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25.0),
           ),
-          child: Image.asset(
-            "assets/raya.jpg",
-            fit: BoxFit.fill,
+          child: Image.network(
+            imageUrl,
+            fit: BoxFit.fill, // Use BoxFit.cover to maintain aspect ratio
+            loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+              if (loadingProgress == null) {
+                return child;
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(
+                    value: loadingProgress.expectedTotalBytes != null
+                        ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
+                        : null,
+                  ),
+                );
+              }
+            },
+            errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
+              return const Center(
+                child: Icon(
+                  Icons.error,
+                  color: Colors.red,
+                ),
+              );
+            },
           ),
         ),
       ),

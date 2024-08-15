@@ -22,6 +22,15 @@ class MovieRepositoryImpl implements MovieRepository {
       return Left(ServerFailure(message: e.message, statusCode: e.statusCode));
     }
   }
+  @override
+  ResultFuture<List<Movie>> getFavourites() async {
+    try {
+      final movies = await remoteDataSource.getFanFavorites();
+      return Right(movies);
+    }catch (e) {
+      return Left(ServerFailure(message: e.toString(), statusCode: 400));
+    }
+  }
 
   @override
   ResultFuture<Movie> getMovieDetails(int id) async {

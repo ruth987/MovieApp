@@ -3,12 +3,12 @@ import 'package:movie_app/core/util/typedef.dart';
 import 'package:movie_app/src/movie/domain/entities/movie.dart';
 import 'package:movie_app/src/movie/domain/repositories/movie_repository.dart';
 
-class GetMovies extends UsecaseWithoutParams<List<Movie>> {
+class GetFavourites extends UsecaseWithoutParams<List<Movie>> {
   final MovieRepository _repository;
 
-  const GetMovies(this._repository);
+  const GetFavourites(this._repository);
 
   @override
-  ResultFuture<List<Movie>> call() async => _repository.getMovies();
+  ResultFuture<List<Movie>> call() async => _repository.getFavourites();
 }
 

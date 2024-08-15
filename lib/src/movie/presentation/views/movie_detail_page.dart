@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../../domain/entities/movie.dart';
 import '../widgets/movie_detail/genre.dart';
 import '../widgets/movie_detail/rating.dart';
 
 class MovieDetailPage extends StatelessWidget {
-  const MovieDetailPage({super.key});
+  final Movie movie;
+
+  const MovieDetailPage({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +62,8 @@ class MovieDetailPage extends StatelessWidget {
                               child: SizedBox(
                                 height: 400,
                                 width: 500,
-                                child: Image.asset(
-                                  "assets/raya.jpg",
+                                child: Image.network(
+                                  movie.primaryImage.imageUrl,
                                   fit: BoxFit.fill,
                                 ),
                               ),
@@ -77,10 +80,15 @@ class MovieDetailPage extends StatelessWidget {
                                   color: Colors.black.withOpacity(0.3),
                                   border: Border.all(color: Colors.white, width: 3), // Customize border width
                                 ),
-                                child: Icon(
-                                  Icons.arrow_back_ios_sharp,
-                                  color: Colors.white,
-                                  size: 24, // Adjust icon size as needed
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Icon(
+                                    Icons.arrow_back_ios_sharp,
+                                    color: Colors.white,
+                                    size: 24, // Adjust icon size as needed
+                                  ),
                                 ),
                               )
                           ),
@@ -108,7 +116,7 @@ class MovieDetailPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const Padding(
+                       Padding(
                         padding: EdgeInsets.only(
                           left: 20,
                           right: 20,
@@ -117,10 +125,10 @@ class MovieDetailPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             SizedBox(
-                              width: 250,
+                              width: 500,
                               // height: 700,
                               child: Text(
-                                "Raya and the Last Dragon",
+                                movie.title ?? 'No title available',
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
@@ -129,7 +137,7 @@ class MovieDetailPage extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "Family , Fantasy , Animation - 1hr 47min",
+                              "Family , Fantasy , Animation - 1hr 25min",
                               style: TextStyle(
                                 color: Color.fromARGB(255, 119, 118, 118),
                                 fontSize: 16,

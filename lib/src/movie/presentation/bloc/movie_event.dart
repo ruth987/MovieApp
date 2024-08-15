@@ -15,11 +15,24 @@ class GetMoviesEvent extends MovieEvent{
   const GetMoviesEvent();
 
 }
-class GetMovieVideosEvent extends MovieEvent{
-  const GetMovieVideosEvent();
+class GetMovieDetailsEvent extends MovieEvent {
+  final int movieId;
 
+  const GetMovieDetailsEvent(this.movieId);
+
+  @override
+  List<Object> get props => [movieId];
 }
-class GetMovieDetailsEvent extends MovieEvent{
-  const GetMovieDetailsEvent();
 
+class GetMovieVideosEvent extends MovieEvent {
+  final int movieId;
+
+  const GetMovieVideosEvent(this.movieId);
+
+  @override
+  List<Object> get props => [movieId];
+}
+
+class GetFavouritesEvent extends MovieEvent {
+  const GetFavouritesEvent();
 }
