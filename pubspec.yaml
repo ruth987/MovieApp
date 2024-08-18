@@ -41,6 +41,7 @@ dependencies:
   flutter_bloc: ^8.1.6
   bloc: ^8.1.4
   carousel_slider: ^4.0.0
+  firebase_auth: ^4.16.0
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,9 @@ flutter:
     - assets/avengersendgame.jpg
     - assets/spiderman.jpeg
     - assets/raya.jpg
+    - assets/movie_logo.png
+    - assets/movielogo2.svg
+    - assets/movielogo3.webp
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

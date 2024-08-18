@@ -3,6 +3,8 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/src/Auth/presentation/views/sign_in_page.dart';
+import 'package:movie_app/src/Auth/presentation/views/splash_page.dart';
 import 'package:movie_app/src/movie/presentation/bloc/movie_bloc.dart';
 import 'package:movie_app/src/movie/presentation/views/movie_home_page.dart';
 import 'package:movie_app/injection_container.dart' as di;
@@ -28,12 +30,11 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home:  const Scaffold(
-              body: MovieHomePage(),
+            home: const Scaffold(
+              body: SplashPage(),
             )
-          // const MyHomePage(title: 'Flutter Demo Home Page'),
-        )
-    );
+            // const MyHomePage(title: 'Flutter Demo Home Page'),
+            ));
   }
 }
 
@@ -50,7 +51,7 @@ Future<void> testApi() async {
         'x-rapidapi-ua': 'RapidAPI-Playground',
         'x-rapidapi-key': apiKey,
         'x-rapidapi-host': apiHost,
-      } ,
+      },
     );
     print(response);
     print("Response status: ${response.statusCode}");
@@ -67,4 +68,3 @@ Future<void> testApi() async {
     print("Error: $e");
   }
 }
-

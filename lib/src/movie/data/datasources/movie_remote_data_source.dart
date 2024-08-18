@@ -24,7 +24,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
   MovieRemoteDataSourceImpl({
     required this.client,});
 
-  static const apiKey = 'f6d5805765msh8cf88d413a811afp14bc76jsncf0681a0dd29';
+  static const apiKey = '43893186eamshf2cd3663e497950p127425jsn095550fdfbe4';
   static const apiHost = 'imdb188.p.rapidapi.com';
 
   @override

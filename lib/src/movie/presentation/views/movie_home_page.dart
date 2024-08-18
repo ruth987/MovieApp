@@ -177,7 +177,7 @@ class _MovieHomePageState extends State<MovieHomePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const CustomTextField(),
+                          const CustomTextField(labelText: "Search"),
                           const SizedBox(height: 20),
                           const Tag(),
                           const SizedBox(height: 10),
